@@ -19,7 +19,7 @@ export default function ContextProvider({ children }) {
 
     fetchData();
   }, []);
-  console.log(advices);
+
   return (
     <>
       <globalContext.Provider value={advices}>
