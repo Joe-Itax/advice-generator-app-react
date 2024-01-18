@@ -7,17 +7,12 @@ export default function ContextProvider({ children }) {
   const [advices, setAdvices] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("src/data/advices.json");
-        const data = await response.json();
-        setAdvices(data);
-      } catch (err) {
-        console.error("Erreur lors de la recuperation des donnees: ", err);
-      }
-    };
-
-    fetchData();
+    fetch("src/data/advices.json")
+      .then((response) => response.json())
+      .then((data) => setAdvices(data))
+      .catch((err) =>
+        console.error("Erreur lors de la récuperation de données: ", err)
+      );
   }, []);
 
   return (
