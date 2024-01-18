@@ -7,7 +7,7 @@ export default function ContextProvider({ children }) {
   const [advices, setAdvices] = useState([]);
 
   useEffect(() => {
-    fetch("src/data/advices.json")
+    fetch("/src/data/advices.json")
       .then((response) => response.json())
       .then((data) => setAdvices(data))
       .catch((err) =>
