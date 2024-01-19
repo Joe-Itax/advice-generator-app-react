@@ -16,25 +16,28 @@ export default function Advices() {
     setRandomNum(Math.floor(Math.random() * advices.length));
   }
   return (
-    <main className="container">
+    <main className="container p-4 sm:p-[unset] flex justify-center items-center flex-col">
       {advices.length > 0 ? (
-        <div className="advice-box">
+        <div className="advice-box relative flex flex-col justify-center items-center text-center gap-4 mb-12 p-4 rounded-[0.8rem] w-full px-2 py-4 sm:w-[30rem]">
           <div className="advice-number-box">
-            <p className="advice-number">
+            <p className="advice-number text-xl font-extrabold uppercase tracking-[3.50px]">
               Conseil #<span id="advice-number">{advices[randomNum].id}</span>
             </p>
           </div>
           <div className="content-advice">
-            <p className="advice-text">
+            <p className="advice-text text-[1.6rem] font-extrabold">
               <q id="advice-text">{advices[randomNum]?.description}</q>
             </p>
           </div>
           <div className="author-advice">
-            <p className="author-name" id="author-name">
+            <p
+              className="author-name italic text-[1.15rem] font-semibold"
+              id="author-name"
+            >
               {advices[randomNum]?.author}
             </p>
           </div>
-          <div className="icon-advice">
+          <div className="icon-advice mb-12">
             <svg width="295" height="16" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" fillRule="evenodd">
                 <path fill="#4F5D74" d="M0 8h122v1H0zM173 8h122v1H173z" />
@@ -45,7 +48,10 @@ export default function Advices() {
               </g>
             </svg>
           </div>
-          <div className="next-advice-btn" onClick={handleClick}>
+          <div
+            className="next-advice-btn absolute w-16 h-16 -translate-x-2/4 -translate-y-2/4 flex justify-center items-center cursor-pointer transition-all duration-[0.3s] ease-[ease-in-out] rounded-[50%] left-2/4 top-full hover:shadow-[0_0_10px_rgba(83,255,171,0.6),0_0_20px_rgba(83,255,171,0.8)]"
+            onClick={handleClick}
+          >
             <svg
               className="btn"
               id="next-advice-btn"
@@ -61,8 +67,8 @@ export default function Advices() {
           </div>
         </div>
       ) : (
-        <div>
-          <p className="text-xl text-white mb-8">Chargement ...</p>
+        <div className="">
+          <p className="text-xl text-white mb-8 text-center">Chargement ...</p>
         </div>
       )}
 
