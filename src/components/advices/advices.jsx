@@ -1,12 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import globalContext from "../../contexts/global-context";
 
 export default function Advices() {
   const advices = useContext(globalContext);
-  const [randomNum, setRandomNum] = useState(
-    Math.floor(Math.random() * advices.length)
-  );
+  const [randomNum, setRandomNum] = useState(0);
+
+  useEffect(() => {
+    if (advices.length > 0) {
+      setRandomNum(Math.floor(Math.random() * advices.length));
+    }
+  }, [advices]);
+
   function handleClick() {
     setRandomNum(Math.floor(Math.random() * advices.length));
   }
